@@ -12,6 +12,8 @@ const pokeAtaque = document.querySelector('#ataquePropio');
 const input = document.querySelector('#input');
 const btnElegir = document.querySelector('#boton_poke');
 const btnPelear = document.querySelector('#combate');
+const ganadorPropio = document.querySelector('#ganadorRonda');
+const ganadorRival = document.querySelector('#ganadorRonda2');
 
 const getNumRandom = () => {
     let min = Math.ceil(0);
@@ -59,9 +61,17 @@ const combate = ()=>{
     const ataqueRival = parseInt(poke2Ataque.textContent);
     const ataquePropio = parseInt(pokeAtaque.textContent);
 
+
+    if(ataquePropio>ataqueRival){
+        ganadorPropio.textContent = namePoke.textContent;
+    }else{
+        ganadorRival.textContent = namePoke2.textContent;
+    }
+
 }
 
 window.addEventListener('load', obtenerPokeRival);
 btnElegir.addEventListener('click', obtenerPokePropio);
 btnPelear.addEventListener('click', combate);
+
 
