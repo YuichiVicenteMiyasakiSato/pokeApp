@@ -1,30 +1,212 @@
+
+* {
+    box-sizing: border-box;
+}
+.contenedor{
+    background-color: rgba(48, 48, 48, 0.123);
+    height: auto;
+    margin: 5%;
+    padding: 0.5em 3em;
+    position: flex;
+
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    
+}
+
+.contException.active{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;
+}
+
 .arena{
     display: flex;
-    height: 300px;
+    height: 400px;
     background-image: url('./fondo.png');
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: contain; 
+    background-position: center;
+}
+
+#poke-propio{
+    position: relative;
+    text-align:center;
+    background-color: rgba(177, 216, 238, 0.808);
+    background-clip: padding-box;
+    border-radius: 25px;
+    margin:auto;
+    width: 42%;
+}
+
+#poke-rival{
+    position: relative;
+    text-align:center;
+    background-clip: content-box;
+    background-color: rgba(255, 197, 197, 0.808);
+    border-radius: 25px;
+    margin:auto;
+    width: 42%; 
 }
 
 #poke{
+
     height: 160px;
     position: fixed;
-    top: 240px;
-    left: 100px;
+    top: 410px;
+    left: 740px;
+    position: sticky;
 }
 
 #poke2{
+
     height: 160px;
     position: fixed;
-    top: 150px;
-    left: 300px;
+    top: 290px;
+    left: 1020px;
+    position: sticky;
 }
 
 #ganador{
-    height: 100px;
-    position: fixed;
+    height: 220px;
+    position: absolute;
     top: 250px;
-    left: 650px;
-    font-style: italic;
+    left: 960px;
+    backdrop-filter: blur(250px);
+    background-color: rgba(167, 167, 167, 0.438);
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25%;
+    transform:translate(-50%,-50%) scale(1.2);
+    text-align:center;
+    padding:20px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+
+
+    transform:translate(-50%,-50%) scale(1.2);
+    opacity:0;
+    background:#ffffff73;
+    transition:top 0ms ease-in-out 200ms,
+    opacity 200ms ease-in-out 0ms,
+    transform 200ms ease-in-out 0ms;
+}
+
+#ganador.active {
+    top:40%;
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1);
+    transition:top 0ms ease-in-out 0ms,
+               opacity 200ms ease-in-out 0ms,
+               transform 200ms ease-in-out 0ms;
+  }
+
+#sectionPoke{
+    display: flex;
+    position: relative;
+    text-align:center;
+    justify-content: center;
+    
+}
+
+#ataquePropio{
+    display: none;
+    position: fixed;
+}
+
+#tipoPropio{
+    display: none;
+    position: fixed;
+}
+
+#refrescar{
+    display: none;
+    position: absolute;
+    text-align:center;
+    cursor: pointer;
+    padding: 0.8em 3em;
+    border-radius: 25px;
+    margin-left: 45px;
+    margin-right: 15px;
+    transition: transform .2s;
+}
+
+#refrescar:hover{
+  transform: scale(1.1);
+}
+
+#boton_poke{
+    cursor: pointer;
+    padding: 0.8em 3em;
+    border-radius: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
+    transition: transform .2s;
+}
+
+#boton_poke:hover{
+  transform: scale(1.1);
+}
+
+#input{
+    border-radius: 25px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-color: rgba(48, 48, 48, 0.123);
+    border-color: aliceblue;
+}
+
+body {
+    background: linear-gradient(45deg,
+     #160000,
+     #140000,
+     #0b0018,
+     #001018,
+     #001018,
+     #0b0018,
+     #140000,
+     #160000);
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite;
+}
+
+#combate{
+  display: none;
+  cursor: pointer;
+  padding: 0.8em 3em;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  transition: transform .2s;
+  background: linear-gradient(90deg,
+   #005983,
+    #8d2661,
+     #7c731d,
+      #005983);
+  background-size: 400%;
+  border-radius: 25px;
+  animation: animate 7s linear infinite;
+}
+ 
+#combate:hover {
+  animation: animate 2s linear infinite;
+  transform: scale(1.1);
+
+}
+
+@keyframes animate {
+  0% {background-position: 0%;}
+  100% {background-position: 400%;}
+}
+ 
+@keyframes gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 

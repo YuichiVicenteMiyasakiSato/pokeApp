@@ -8,12 +8,20 @@ const namePoke = document.querySelector('#nombrePoke-propio');
 const pokeTipo = document.querySelector('#tipoPropio');
 const pokeAtaque = document.querySelector('#ataquePropio');
 
-
 const input = document.querySelector('#input');
 const btnElegir = document.querySelector('#boton_poke');
 const btnPelear = document.querySelector('#combate');
+const winnerMensaje = document.querySelector('#winner');
 const ganadorPropio = document.querySelector('#ganadorRonda');
 const ganadorRival = document.querySelector('#ganadorRonda2');
+
+const ataqueConcatenado = document.querySelector('#ataque');
+const tipoConcatenado = document.querySelector('#tipo');
+
+var bandera = 0;
+var refrescarPgn = document.querySelector('#refrescar');
+const mostrarPop = document.querySelector('#ganador');
+
 
 const getNumRandom = () => {
     let min = Math.ceil(0);
@@ -24,7 +32,7 @@ const getNumRandom = () => {
 
 const obtenerPokePropio = ()=>{
     const num = input.value;
-    
+    bandera = 1;
     
         axios.get(`https://pokeapi.co/api/v2/pokemon/${num}`).then((res)=>{ // axios llama a la api mediante una URL
     
@@ -35,9 +43,10 @@ const obtenerPokePropio = ()=>{
             pokeTipo.innerHTML = res.types[0].type.name;
             namePoke.innerHTML = res.name;
             pokeAtaque.innerHTML = res.stats[0].base_stat;
+            btnPelear.style.display = 'block';
+            ataqueConcatenado.textContent = 'Ataque: ' + pokeAtaque.innerHTML;
+            tipoConcatenado.textContent = 'Tipo: ' + pokeTipo.innerHTML;
         })
-    
-
 }
 
 const obtenerPokeRival = () =>{
@@ -61,17 +70,40 @@ const combate = ()=>{
     const ataqueRival = parseInt(poke2Ataque.textContent);
     const ataquePropio = parseInt(pokeAtaque.textContent);
 
+    if(bandera == 1){
 
-    if(ataquePropio>ataqueRival){
-        ganadorPropio.textContent = namePoke.textContent;
-    }else{
-        ganadorRival.textContent = namePoke2.textContent;
+        refrescarPgn.style.display = 'block';
+        document.querySelector('.contException').classList.add("active");
+
+        if(ataquePropio>ataqueRival){
+            winnerMensaje.textContent = 'GANASTE!!!';
+            ganadorPropio.textContent = 'Pokemon ganador: ' + namePoke.textContent;
+            document.querySelector("#ganador").classList.add("active");
+        }else if(ataquePropio == ataqueRival){
+            winnerMensaje.textContent = 'EMPATE!!!';
+            document.querySelector("#ganador").classList.add("active");
+        }else{
+            winnerMensaje.textContent = 'PERDISTE!!!';
+            ganadorRival.textContent = 'Pokemon ganador: ' + namePoke2.textContent;
+            document.querySelector("#ganador").classList.add("active");
+        }
+        
     }
+}
 
+refrescarPgn.onclick = function(){
+    location.reload();
 }
 
 window.addEventListener('load', obtenerPokeRival);
 btnElegir.addEventListener('click', obtenerPokePropio);
 btnPelear.addEventListener('click', combate);
+
+winnerMensaje.addEventListener('click',combate);
+ganadorPropio.addEventListener('click', combate);
+ganadorRival.addEventListener('click',combate);
+
+ataqueConcatenado.addEventListener('click', obtenerPokePropio);
+tipoConcatenado.addEventListener('click', obtenerPokePropio);
 
 

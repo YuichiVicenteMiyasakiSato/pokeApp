@@ -11,38 +11,48 @@
     
     
     <!--<ul>
-        <li>Martinz Jimenez Alejandro</li>
+        <li>Martinez Jimenez Alejandro</li>
         <li>Miyasaki Sato Yuichi Vicente</li>
     </ul>
     <!/-->
 
-    <div class="stats" id="poke-rival">
-        <h3 id="nombrePoke-rival"></h3>
-        <p id="tipoRival"></p>
-        <p>Ataque: <span id="ataqueRival"></span></p>
-    </div>
+    <div class="contenedor">
 
-    <div class="arena">
-        <img id="poke2" src="" alt="">
-        <img id="poke" src="" alt="">
-    </div>
+        <div class="contException">
+            <div class="stats" id="poke-rival">
+                <h3 id="nombrePoke-rival"></h3>
+                <p>Tipo: <span id="tipoRival"></span></p>
+                <p>Ataque: <span id="ataqueRival"></span></p>
+            </div>
+    
+            <div class="arena">
+                <img id="poke2" src="" alt="">
+                <img id="poke" src="" alt="">
+            </div>
+    
+            <div class="stats" id="poke-propio">
+                <h3 id="nombrePoke-propio"></h3>
+                <p id="tipo"></p>
+                <p id="ataque"></p>
+    
+                <p id="tipoPropio"></p> 
+                <p id="ataquePropio"></p>
+            </div>
+    
+            <div class="stats" id="sectionPoke">
+                <input id="input" min="1" max= "999" type="text">
+                <button id="boton_poke">Elige el Pokemón</button>
+                <button id="combate">Combatir </button>
+            </div>
+        </div>
 
-    <div class="stats" id="poke-propio">
-        <h3 id="nombrePoke-propio"></h3>
-        <p id="tipoPropio"></p>
-        <p>Ataque: <span id="ataquePropio"></span></p>
-    </div>
+        <div class= win id="ganador">
+            <h1 id="winner"></h1>
+            <h2 id="ganadorRonda"></h2>
+            <h2 id="ganadorRonda2"></h2>
+            <button id="refrescar">Jugar de nuevo</button>
+        </div>
 
-    <div>
-        <input id="input" min="1" max= "999" type="text">
-        <button id="boton_poke">Elige el Pokemón</button>
-        <button id="combate">Ataque </button>
-    </div>
-
-    <div class= win id="ganador">
-        <h1>El ganador es:</h1>
-        <h2 id="ganadorRonda"></h2>
-        <h2 id="ganadorRonda2"></h2>
     </div>
 
     <script src="./app.js"></script> 
