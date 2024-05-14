@@ -53,26 +53,24 @@
 #poke{
 
     height: 160px;
-    position: fixed;
+    position: absolute;
     top: 410px;
-    left: 740px;
-    position: sticky;
+    left: 540px;
 }
 
 #poke2{
 
     height: 160px;
-    position: fixed;
+    position: absolute;
     top: 290px;
-    left: 1020px;
-    position: sticky;
+    left: 810px;
 }
 
 #ganador{
     height: 220px;
     position: absolute;
     top: 250px;
-    left: 960px;
+    left: 760px;
     backdrop-filter: blur(250px);
     background-color: rgba(167, 167, 167, 0.438);
     width: 300px;
@@ -162,14 +160,14 @@
 
 body {
     background: linear-gradient(45deg,
-     #160000,
-     #140000,
-     #0b0018,
-     #001018,
-     #001018,
-     #0b0018,
-     #140000,
-     #160000);
+     #4b0000,
+     #420000,
+     #2b005d,
+     #00354f,
+     #00354f,
+     #2b005d,
+     #420000,
+     #420000);
     background-size: 400% 400%;
     animation: gradient 8s ease infinite;
 }
